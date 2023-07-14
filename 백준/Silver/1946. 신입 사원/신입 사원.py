@@ -5,14 +5,15 @@ input = sys.stdin.readline
 T = int(input())
 for _ in range(T):
     N = int(input())
+    lst = [0] * (N + 1)
     ans = 1
-    standard_lst = [0]
-    lst = [tuple(map(int, input().split())) for _ in range(N)]
-    lst.sort()
-    now_score = lst[0][1]
-    for _, score in lst[1:]:
-        if score < now_score:
+    for i in range(N):
+        a, b = map(int, input().split())
+        lst[a] = b
+    now_score = lst[1]
+    for i in range(2, N + 1):
+        if lst[i] < now_score:
             ans += 1
-            now_score = score
+            now_score = lst[i]
 
     print(ans)
