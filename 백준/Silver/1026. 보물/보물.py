@@ -1,0 +1,5 @@
+N = int(input())
+a_lst = sorted(list(map(int, input().split())))
+b_lst = sorted(list(map(int, input().split())), reverse=True)
+ans = sum([i * j for i, j in zip(a_lst, b_lst)])
+print(ans)
