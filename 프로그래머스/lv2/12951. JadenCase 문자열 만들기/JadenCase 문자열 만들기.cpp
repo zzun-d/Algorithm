@@ -5,23 +5,9 @@ using namespace std;
 
 string solution(string s) {
     string answer = "";
-    int gap = 'a' - 'A';
-    if (s[0] >= 'a' && s[0] <= 'z') s[0] -= gap;
-    
+    answer += toupper(s[0]);
     for (int i=1; i<s.size(); i++) {
-        if (s[i] == ' ') {
-            while (i < s.size() && s[i] == ' ') {
-                i++;
-            }
-            if (i < s.size() && s[i] >= 'a' && s[i] <= 'z') {
-                s[i] -= gap;
-            }
-        } else {
-            if (s[i] >= 'A' && s[i] <= 'Z') {
-                s[i] += gap;
-            }
-        }
+        s[i-1] == ' ' ? answer += toupper(s[i]) : answer += tolower(s[i]);
     }
-    answer = s;
-    return answer;
+    return answer; 
 }
