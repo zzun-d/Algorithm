@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cmath>
 
 using namespace std;
 
@@ -10,9 +9,12 @@ int main() {
 	cin >> L >> S;
 	long long ans = 0;
 	for (int i = 0; i < L; i++) {
-		int c = S[i] - 'a' + 1;
-		ans += pow(31, i) * c;
-		ans %= 1234567891;
+		long long c = S[i] - 'a' + 1;
+		long long std = 1;
+		for (int j=0; j<i; j++) {
+			std *= 31;
+		}
+		ans = (ans + std * c)%1234567891;
 	}
 	cout << ans;
 	
