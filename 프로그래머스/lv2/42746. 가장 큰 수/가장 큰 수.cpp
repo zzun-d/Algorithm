@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -22,8 +21,6 @@ string solution(vector<int> numbers) {
     for (int i=0; i<v.size(); i++) {
         answer += v[i];
     }
-    int idx = 0;
-    while (answer[idx] == '0' && idx < answer.size() - 1) idx++;
-    answer = answer.substr(idx, answer.size()-idx);
+    if (answer[0] == '0') answer = "0";
     return answer;
 }
